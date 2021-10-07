@@ -4,7 +4,6 @@ const Player = require("./player")
 const Dealer = function(){
     this.deck = []
 }
-const dealer = new Dealer();
 
 // Define card types and possible values
 const suits = ["spade","club","heart","diamond"];
@@ -21,7 +20,6 @@ Dealer.prototype.getCards = function(){
     };
 };
 
-dealer.getCards();
 // console.log(dealer.deck)
 // console.log("size of pile is " + dealer.deck.length)
 
@@ -45,11 +43,8 @@ Dealer.prototype.shuffleCards = function(array) {
     return array;
   }
   
-  dealer.shuffleCards(dealer.deck);
 //   console.log(dealer.deck);
 
-playerOne = new Player("playerOne");
-playerTwo = new Player("playerTwo");
 //Assign half the cards to each player's deck
 Dealer.prototype.dealCards = function() {
     // Give first half of dealer's deck to player one
@@ -64,7 +59,6 @@ Dealer.prototype.dealCards = function() {
     };
 };
 
-dealer.dealCards();
 
 // console.log(playerOne.deck);
 console.log(playerOne.deck);

@@ -1,3 +1,5 @@
+const Player = require ("../src/player.js");
+
 //initialise Card object
 const Card = function(cardSuit, cardValue, cardHolder, faceUp){
     this.suit = cardSuit;
@@ -9,3 +11,4 @@ const Card = function(cardSuit, cardValue, cardHolder, faceUp){
 
 
 module.exports = Card;
+
