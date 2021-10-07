@@ -9,9 +9,4 @@ Player.prototype.draw = function(){
     
 }
 
-//Player collects all cards from the Arena
-Player.prototype.collect = function(){
-    
-}
-
 module.exports = Player;

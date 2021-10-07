@@ -4,14 +4,13 @@ const Player = require("./player")
 const Dealer = function(){
     this.deck = []
 }
-const dealer = new Dealer();
 
-// Define card types and possible values
-const suits = ["spade","club","heart","diamond"];
-const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
 //Create 52 cards, 4 of each type
 Dealer.prototype.getCards = function(){
+    // Define card types and possible values
+    const suits = ["spade","club","heart","diamond"];
+    const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
     for (i = 0; i < suits.length; i++) {
         for (j = 0; j < values.length; j++) {
@@ -21,12 +20,10 @@ Dealer.prototype.getCards = function(){
     };
 };
 
-dealer.getCards();
 // console.log(dealer.deck)
 // console.log("size of pile is " + dealer.deck.length)
 
 //Shuffle using Fisher-Yates (aka Knuth) Shuffle which I found here https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-
 Dealer.prototype.shuffleCards = function(array) {
     let currentIndex = array.length,  randomIndex;
   
@@ -45,13 +42,10 @@ Dealer.prototype.shuffleCards = function(array) {
     return array;
   }
   
-  dealer.shuffleCards(dealer.deck);
 //   console.log(dealer.deck);
 
-playerOne = new Player("playerOne");
-playerTwo = new Player("playerTwo");
 //Assign half the cards to each player's deck
-Dealer.prototype.dealCards = function() {
+Dealer.prototype.dealCards = function(dealer, playerOne, playerTwo) {
     // Give first half of dealer's deck to player one
     for (k = 0; k < this.deck.length/2; k++) {
         this.deck[k].cardHolder = "playerOne";
@@ -64,10 +58,10 @@ Dealer.prototype.dealCards = function() {
     };
 };
 
-dealer.dealCards();
+module.exports = Dealer;
 
 // console.log(playerOne.deck);
-console.log(playerOne.deck);
-console.log(playerOne.deck.length)
-console.log(playerTwo.deck);
-console.log(playerTwo.deck.length)
+// console.log(playerOne.deck);
+// console.log(playerOne.deck.length)
+// console.log(playerTwo.deck);
+// console.log(playerTwo.deck.length)
