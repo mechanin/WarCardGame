@@ -11,4 +11,3 @@ const Card = function(cardSuit, cardValue, cardHolder, faceUp){
 
 
 module.exports = Card;
-

@@ -4,12 +4,11 @@ const Card = require ("./card.js")
 const Arena = function(){
     this.cardsInPlayOne = [];
     this.cardsInPlayTwo = [];
-    this.Player = null;
     this.warDeckOne = [];
     this.warDeckTwo = [];
 }
 
-Arena.prototype.playCards = function(){
+Arena.prototype.playCards = function(playerOne, playerTwo){
     // Take top card of Player 1's deck, turn it face up, add to play
     playerOne.deck[0].faceUp = true
     this.cardsInPlayOne.push(playerOne.deck[0])
@@ -21,19 +20,19 @@ Arena.prototype.playCards = function(){
     playerTwo.deck.shift()
 }
 
-Arena.prototype.compare(cardsInPlayOne, cardsInPlayTwo) {
+Arena.prototype.compare = function(playerOne, cardsInPlayOne, playerTwo, cardsInPlayTwo) {
 
-    if (cardsInPlayOne.value > cardsInPlayTwo.value) {
-        playerOne.deck.push(cardsInPlayOne);
+    if (cardsInPlayOne[0].value > cardsInPlayTwo[0].value) {
+        playerOne.deck.push(cardsInPlayOne[0]);
         cardsInPlayOne.shift();
-        playerOne.deck.push(cardsInPlayTwo);
+        playerOne.deck.push(cardsInPlayTwo[0]);
         cardsInPlayTwo.shift();
         console.log("Player 1 wins round");
     }
-    else if (playerTwoCard.value > playerOneCard.value) {
-        playerTwo.deck.push(cardsInPlayOne);
+    else if (cardsInPlayTwo[0].value > cardsInPlayOne[0].value) {
+        playerTwo.deck.push(cardsInPlayOne[0]);
         cardsInPlayOne.shift();
-        playerTwo.deck.push(cardsInPlayTwo);
+        playerTwo.deck.push(cardsInPlayTwo[0]);
         cardsInPlayTwo.shift();
         console.log("Player 2 wins round");
     }
@@ -45,8 +44,6 @@ Arena.prototype.compare(cardsInPlayOne, cardsInPlayTwo) {
     //         this.warDeckTwo.push(playerTwo.deck[i]);
     //         playerTwo.deck.shift()
     }
-}
-        
 }
 
 // Arena.prototype.playCardsWar = function(){ 
@@ -75,7 +72,7 @@ Arena.prototype.compare(cardsInPlayOne, cardsInPlayTwo) {
 // }
 
 
-Arena.prototype.declareLoser(playerOne.deck, playerTwo.deck) {
+Arena.prototype.declareLoser = function(playerOne) {
     if (playerOne.deck.length === 0) {
         return "Player one loses";
     } else {
@@ -83,4 +80,4 @@ Arena.prototype.declareLoser(playerOne.deck, playerTwo.deck) {
     }
 }
 
-module.exports = Arena();
+module.exports = Arena;

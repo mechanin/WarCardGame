@@ -16,14 +16,9 @@ dealer.dealCards();
 //Create Arena
 const arena = new Arena();
 const playerOneWin = cardsInPlay.compare();
-expect(playerOneWin).toBe()
 
 // arena.cardsInPlay.compare();
 
 //Play a round
 cardsInPlay.compare();
-
-
-
-
 
